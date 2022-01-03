@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
 
 contract MerkleNFT {
 
-    bytes32 public merkleRoot = 0x1fbe8e17437522d0e4001144d23463c4a96cb7e2a036ea69f41e3ef27e3ece3e;
+    bytes32 public merkleRoot = 0x75a4ea0bea56ac457ce5dc3e1a50f7a4cc5f42f6b6ea7106fcf6df56e37515a0;
 
     mapping(address => bool) public whitelistClaimed;
 

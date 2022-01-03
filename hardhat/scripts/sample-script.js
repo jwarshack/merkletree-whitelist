@@ -4,6 +4,7 @@ const hre = require("hardhat");
 async function main() {
   
   const [_, minter1, minter2] = await hre.ethers.getSigners()
+  console.log("minter1 address", minter1.address)
   const Merkle = await hre.ethers.getContractFactory("MerkleNFT");
   const merkle = await Merkle.deploy();
 
@@ -13,8 +14,9 @@ async function main() {
 
 
   // Attempt to mint
-  await merkle.connect(minter1).whitelistMint()
-
+  await merkle.connect(minter1).whitelistMint([
+    '0x1fbe8e17437522d0e4001144d23463c4a96cb7e2a036ea69f41e3ef27e3ece3e'
+  ])
   
 }
 
