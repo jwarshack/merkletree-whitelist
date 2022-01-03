@@ -11,4 +11,14 @@ let whitelistAddresses = [
 const leafNodes = whitelistAddresses.map(addr => keccack256(addr))
 const merkleTree = new MerkleTree(leafNodes, keccack256, { sortPairs: true})
 
-console.log('Whitelist Merkle Tree\n', merkleTree)
+const rootHash = merkleTree.getHexRoot()
+
+console.log('Root', rootHash)
+
+console.log('Whitelist Merkle Tree\n', merkleTree.toString())
+
+const claimingAddress = leafNodes[0]
+
+const hexProof = merkleTree.getHexProof(claimingAddress)
+
+console.log('Merkle Proof for Address - ', whitelistAddresses[0], hexProof )
